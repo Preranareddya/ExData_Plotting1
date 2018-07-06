@@ -1,6 +1,6 @@
-p <- xyplot(y ~ x | f, panel = function(x, y, ...) {
-  panel.xyplot(x, y, ...)  ## First call the default panel function for 'xyplot'
-  panel.abline(h = median(y), lty = 2)  ## Add a horizontal line at the median
-})
-print(p)
-invisible()
+data<-read.csv("C:\\Users\\Prerana\\Desktop\\household_power_consumption.txt", header=TRUE, sep=";", stringsAsFactors=FALSE, na.strings = "?", dec=".")
+> data_subset<-subset(data, Date %in% c("1/2/2007", "2/2/2007"))
+> data_subset$Date <- as.Date(data_subset$Date, format="%d/%m/%Y")
+> hist(data_subset$Global_active_power, main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red")
+> png("plot1.png", width=480, height=480)
+dev.off()
